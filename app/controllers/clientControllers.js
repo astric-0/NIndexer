@@ -28,7 +28,7 @@ const indexUrl = async (req, res) => {
                 const doc = await KeywordsModel.findOne({ word });
                 const weight = '' + wordWeights[word];                
                 if (doc) {
-                    if (doc.weights[weight]?.has(url)) return;
+                    if (doc.weights[weight]?.includes(url)) return;
                     
                     if (!doc.weights.has(weight))
                         doc.weights[weight] = [url];
