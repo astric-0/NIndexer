@@ -18,7 +18,7 @@ const urlsSchema = new mongoose.Schema({
         required: true,
     },
 
-    links: {
+    'links': {
         type: [String]
     }
 });
