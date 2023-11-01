@@ -27,4 +27,16 @@ const checkUrlInIndexerDb = async (req, res, next) => {
     }
 }
 
-export { checkHtmlBody, checkUrlInIndexerDb }
+const checkUrlIsActive = async (req, res, next) => {
+    try {
+        const { url } = req;
+        const response = await fetch(url);
+        if (response.status == 200)
+            return next();
+        throw new RouteError('Invalid Url', 400);
+    } catch ({ message, statusCode }) {
+        next(new RouteError(message, statusCode ?? 500));
+    }
+}
+
+export { checkHtmlBody, checkUrlInIndexerDb, checkUrlIsActive }

@@ -4,6 +4,6 @@ import { clientControllers as cc } from '../controllers/index.js';
 
 const router = express.Router();
 
-router.post('/index', mdw.checkHtmlBody, mdw.checkUrlInIndexerDb, cc.indexUrl);
+router.post('/index', mdw.checkHtmlBody, mdw.checkUrlInIndexerDb, mdw.checkUrlIsActive, cc.indexUrl);
 
 export default router;
