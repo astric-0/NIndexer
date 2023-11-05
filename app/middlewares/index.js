@@ -29,7 +29,7 @@ const checkUrlInIndexerDb = async (req, res, next) => {
 
 const checkUrlIsActive = async (req, res, next) => {
     try {
-        const { url } = req;
+        const { url } = req.body;
         const response = await fetch(url);
         if (response.status == 200)
             return next();
