@@ -73,4 +73,8 @@ const indexUrl = async (req, res) => {
     }
 }
 
-export { indexUrl };
+const imgList = (_, res) => {
+    return res.status(200).send(JSON.stringify({project: 'modern1.jpg'}));
+}
+
+export { indexUrl, imgList };
