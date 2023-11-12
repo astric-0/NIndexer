@@ -74,7 +74,10 @@ const indexUrl = async (req, res) => {
 }
 
 const imgList = (_, res) => {
-    return res.status(200).send(JSON.stringify({project: 'modern1.png'}));
+    return res.status(200).send(JSON.stringify({
+        projectImg: 'lamp.gif',
+        requirementImg: 'requirements2.gif',
+    }));
 }
 
 export { indexUrl, imgList };
