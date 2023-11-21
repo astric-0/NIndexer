@@ -1,5 +1,5 @@
 import clientRouter from './clientRoutes.js';
 
-export { 
+export {
     clientRouter,
 }

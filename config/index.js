@@ -1,6 +1,6 @@
 const config = {
     connectionString: "mongodb://IndexerApp:password@127.0.0.1:27017/IndexerAppDb",
-    
+
     maxDateDifference: 15778800000, // 6 months in milliseconds
 
     tagWeights: {
@@ -12,7 +12,7 @@ const config = {
         H4: 2,
         H5: 1,
         H6: 1,
-        P:  2,
+        P: 2,
     },
 
 }

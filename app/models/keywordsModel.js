@@ -11,7 +11,7 @@ const keywordsSchema = new mongoose.Schema({
     'weights': {
         type: Map,
         of: {
-            type: [{ type: String, unique: true }],            
+            type: [{ type: String, unique: true }],
         },
         required: true,
         default: new Map(),

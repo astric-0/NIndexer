@@ -5,9 +5,9 @@ import config from "../../config/index.js";
 
 const indexUrl = async (req, res) => {
     try {
-        const { url, htmlBody, links } = req.body;        
+        const { url, htmlBody, links } = req.body;
         const { tagWeights } = config;
-        
+
         const wordWeights = {};
         const $ = cheerio.load(htmlBody);
         $('*').each((_, element) => {
@@ -15,8 +15,8 @@ const indexUrl = async (req, res) => {
 
             if (tagName == 'META' || !tagWeights[tagName]) return;
 
-            $(element).text()?.trim()?.split(/[\W\d_]/g).forEach(word => {   
-                const lowerCased = word.toLowerCase();      
+            $(element).text()?.trim()?.split(/[\W\d_]/g).forEach(word => {
+                const lowerCased = word.toLowerCase();
                 if (isStopWord(lowerCased)) return;
                 wordWeights[lowerCased] = (wordWeights[lowerCased] || 0) + tagWeights[tagName];
             });
@@ -26,10 +26,10 @@ const indexUrl = async (req, res) => {
         words.forEach(async word => {
             try {
                 const doc = await KeywordsModel.findOne({ word });
-                const weight = '' + wordWeights[word];                
+                const weight = '' + wordWeights[word];
                 if (doc) {
                     if (doc.weights[weight]?.includes(url)) return;
-                    
+
                     if (!doc.weights.has(weight))
                         doc.weights[weight] = [url];
                     else
@@ -39,9 +39,9 @@ const indexUrl = async (req, res) => {
                 }
                 else {
                     await KeywordsModel({
-                        word, 
+                        word,
                         weights: new Map([
-                            [ weight, [url] ]
+                            [weight, [url]]
                         ])
                     })
                         .save();

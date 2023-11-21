@@ -4,7 +4,7 @@ import { errorHandler } from "./lib/error-handler/index.js";
 import cors from 'cors';
 
 import IndexerDatabase from "./lib/IndexerDatabase.js";
- 
+
 IndexerDatabase();
 
 const app = express();
@@ -22,8 +22,8 @@ app.use(errorHandler);
 app.listen(port, error => {
     if (error)
         console.error(error);
-    else 
-        console.log(`Started @ ${ port } @ ${ new Date().toLocaleTimeString() }`);
+    else
+        console.log(`Started @ ${port} @ ${new Date().toLocaleTimeString()}`);
 });
 
 export default app;

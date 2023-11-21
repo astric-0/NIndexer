@@ -6,15 +6,15 @@ const urlsSchema = new mongoose.Schema({
         required: true,
         unique: true,
         index: true,
-    }, 
+    },
 
     'lastUpdated': {
         type: Date,
-        default: Date.now,   
-    }, 
+        default: Date.now,
+    },
 
     'status': {
-        type: String,        
+        type: String,
         required: true,
     },
 
