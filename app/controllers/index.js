@@ -1,5 +1,3 @@
-import * as clientControllers from './clientControllers.js';
+import * as clientControllers from "./clientControllers.js";
 
-export { 
-    clientControllers,
-};
+export { clientControllers };

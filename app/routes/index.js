@@ -1,5 +1,3 @@
-import clientRouter from './clientRoutes.js';
+import clientRouter from "./clientRoutes.js";
 
-export {
-    clientRouter,
-}
+export { clientRouter };
